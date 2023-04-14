@@ -8,7 +8,7 @@ import './App.css';
 
 const App = () => (
 	<Paper className='mx-auto box-border flex h-screen w-full max-w-[1200px] cursor-default flex-col px-4'>
-		<h1 className=''>Office Locator</h1>
+		<h1 className='w-[30%] text-center'>Office Locator</h1>
 		<div className='flex flex-grow overflow-hidden'>
 			<div className='flex w-[30%] flex-col'>
 				<div className='grid flex-grow grid-cols-1'>
