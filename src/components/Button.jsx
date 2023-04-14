@@ -79,22 +79,22 @@ const buttonVariants = cva(
 			{
 				variant: ['text', 'outline'],
 				color: 'primary',
-				className: 'dark:hover:text-primary hover:bg-primary/30'
+				className: 'dark:hover:text-text hover:bg-primary/30'
 			},
 			{
 				variant: ['text', 'outline'],
 				color: 'secondary',
-				className: 'dark:hover:text-secondary hover:bg-secondary/30'
+				className: 'dark:hover:text-text hover:bg-secondary/30'
 			},
 			{
 				variant: ['text', 'outline'],
 				color: 'success',
-				className: 'dark:hover:text-success hover:bg-success/30'
+				className: 'dark:hover:text-text hover:bg-success/30'
 			},
 			{
 				variant: ['text', 'outline'],
 				color: 'warning',
-				className: 'dark:hover:text-warning hover:bg-warning/30'
+				className: 'dark:hover:text-text hover:bg-warning/30'
 			},
 			{
 				variant: ['text', 'outline'],

@@ -38,7 +38,7 @@ const App = () => {
 							))}
 						</div>
 					</div>
-					<div className='ml-4 w-[70%] flex-grow rounded-tr-md'>
+					<div className='mb-4 ml-4 w-[70%] flex-grow rounded-tr-md'>
 						<GoogleMap
 							center={initialLocation.center}
 							zoom={initialLocation.zoom}
