@@ -3,7 +3,7 @@ import { Button, TextField } from './components';
 import { SlidersHorizontal } from 'lucide-react';
 
 const SearchBox = () => (
-	<div className='rounded-tl-md bg-gray-100 p-2'>
+	<div className='rounded-tl-md bg-gray-100 p-2 dark:bg-gray-500'>
 		<div className='mb-1 px-5 pt-3 text-xl'>Find a DSHS Office or Resource</div>
 		<span className='flex items-center justify-start px-3 py-3 text-base'>
 			<TextField

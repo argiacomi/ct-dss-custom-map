@@ -28,13 +28,17 @@ const OfficeLocationCard = ({
 							{title}
 						</div>
 					</a>
-					<div className='text-xs text-gray-600 sm:text-sm'>{address}</div>
-					<div className='text-xs text-gray-600 sm:text-sm'>{city}</div>
+					<div className='text-xs text-gray-600 dark:text-gray-300 sm:text-sm'>
+						{address}
+					</div>
+					<div className='text-xs text-gray-600 dark:text-gray-300 sm:text-sm'>
+						{city}
+					</div>
 					<span className='mt-2 flex space-x-1'>
 						<a
 							href='/'
-							className='text-decoration-none cursor-pointer border-none bg-opacity-0 text-blue-700 no-underline
-							hover:text-primary dark:text-white'
+							className='text-decoration-none cursor-pointer border-none bg-opacity-0 text-blue-400 no-underline
+							hover:text-blue-600'
 						>
 							{' '}
 							View details
@@ -42,8 +46,8 @@ const OfficeLocationCard = ({
 						<Separator orientation='vertical' className='h-5' />
 						<a
 							href='/'
-							className='text-decoration-none cursor-pointer border-none bg-opacity-0 text-blue-700 no-underline
-							hover:text-primary dark:text-white'
+							className='text-decoration-none cursor-pointer border-none bg-opacity-0 text-blue-400 no-underline
+							hover:text-blue-600'
 						>
 							Get Directions
 						</a>
