@@ -25,7 +25,7 @@ const App = () => {
 						<div className='grid flex-grow grid-cols-1'>
 							<SearchBox />
 						</div>
-						<div className='mb-6 grid flex-grow grid-cols-1 overflow-y-auto rounded-bl-lg bg-gray-50 dark:bg-gray-800 '>
+						<div className='mb-4 grid flex-grow grid-cols-1 overflow-y-auto rounded-bl-lg bg-gray-50 dark:bg-gray-800 '>
 							{Offices.map((office, index) => (
 								<OfficeLocationCard
 									key={index}
@@ -38,7 +38,7 @@ const App = () => {
 							))}
 						</div>
 					</div>
-					<div className='mb-4 ml-4 w-[70%] flex-grow rounded-tr-md'>
+					<div className='mb-4 mr-1 w-[70%] flex-grow rounded-lg'>
 						<GoogleMap
 							center={initialLocation.center}
 							zoom={initialLocation.zoom}
