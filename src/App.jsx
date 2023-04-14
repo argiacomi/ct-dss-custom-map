@@ -10,7 +10,7 @@ import './App.css';
 const App = () => {
 	const initialLocation = {
 		center: { lat: 41.7677753, lng: -72.6877505 },
-		zoom: 16
+		zoom: 18
 	};
 
 	return (
