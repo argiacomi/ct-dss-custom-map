@@ -18,8 +18,6 @@ const GoogleMap = ({ center, zoom }) => {
 		} else {
 			loadGoogleMaps({
 				key: import.meta.env.VITE_GOOGLE_MAPS_API_KEY
-				// Add other options as needed, using camel case.
-				// Use the 'v' parameter to indicate the version to load (alpha, beta, weekly, etc.)
 			}).then(initializeMap);
 		}
 	}, [center, zoom]);

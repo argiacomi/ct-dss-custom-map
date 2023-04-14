@@ -1,3 +1,5 @@
+const GOOGLE_MAPS_API_BASE_URL = 'https://maps.googleapis.com/maps/api/js?';
+
 export const loadGoogleMaps = async (options) => {
 	const document = window.document;
 	const config = {
@@ -10,9 +12,7 @@ export const loadGoogleMaps = async (options) => {
 	};
 
 	const createUrl = () => {
-		let url = 'https://maps.googleapis.com/maps/api/js?';
 		const queryParams = new URLSearchParams();
-
 		queryParams.set('callback', '__googleMapsCallback');
 		queryParams.set('key', config.apiKey);
 		queryParams.set('libraries', config.libraries.join(','));
@@ -20,36 +20,37 @@ export const loadGoogleMaps = async (options) => {
 		queryParams.set('region', config.region);
 		if (config.version) queryParams.set('v', config.version);
 
-		url += queryParams.toString();
-		return url;
+		return `${GOOGLE_MAPS_API_BASE_URL}${queryParams.toString()}`;
 	};
 
-	const loadScript = () => {
-		return new Promise((resolve, reject) => {
-			if (window.google && window.google.maps) {
-				console.warn('Google Maps already loaded.');
-				resolve(window.google);
+	const loadScript = async () => {
+		if (window.google && window.google.maps) {
+			console.warn('Google Maps already loaded.');
+			return window.google;
+		}
+
+		const script = document.createElement('script');
+		script.src = createUrl();
+		script.defer = true;
+		script.async = true;
+		script.nonce = document.querySelector('script[nonce]')?.nonce || '';
+
+		const onError = (error) => {
+			if (config.retries > 0) {
+				config.retries--;
+				console.warn('Retrying Google Maps script load.');
+				setTimeout(async () => {
+					document.head.removeChild(script);
+					await loadScript();
+				}, 1000);
+			} else {
+				throw error;
 			}
+		};
 
-			const script = document.createElement('script');
-			script.src = createUrl();
-			script.defer = true;
-			script.async = true;
-			script.nonce = document.querySelector('script[nonce]')?.nonce || '';
+		script.onerror = onError;
 
-			script.onerror = (error) => {
-				if (config.retries > 0) {
-					config.retries--;
-					console.warn('Retrying Google Maps script load.');
-					setTimeout(() => {
-						document.head.removeChild(script);
-						loadScript().then(resolve).catch(reject);
-					}, 1000);
-				} else {
-					reject(error);
-				}
-			};
-
+		return new Promise((resolve) => {
 			window.__googleMapsCallback = () => {
 				resolve(window.google);
 			};
