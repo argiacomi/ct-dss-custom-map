@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react';
-import './lib/loadGoogleMaps';
+import { loadGoogleMaps } from './lib/loadGoogleMaps';
 
 const GoogleMap = ({ center, zoom }) => {
 	const mapRef = useRef();
 
 	useEffect(() => {
-		const initializeMap = () => {
+		const initializeMap = async () => {
+			const { Map } = await google.maps.importLibrary('maps');
 			const map = new google.maps.Map(mapRef.current, {
 				center,
 				zoom
@@ -15,7 +16,11 @@ const GoogleMap = ({ center, zoom }) => {
 		if (window.google && window.google.maps) {
 			initializeMap();
 		} else {
-			window.google.maps.importLibrary('places', initializeMap);
+			loadGoogleMaps({
+				key: import.meta.env.VITE_GOOGLE_MAPS_API_KEY
+				// Add other options as needed, using camel case.
+				// Use the 'v' parameter to indicate the version to load (alpha, beta, weekly, etc.)
+			}).then(initializeMap);
 		}
 	}, [center, zoom]);
 

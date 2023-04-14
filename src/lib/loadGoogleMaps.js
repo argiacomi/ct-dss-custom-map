@@ -1,55 +1,62 @@
-((g) => {
-	const p = 'The Google Maps JavaScript API';
-	const c = 'google';
-	const l = 'importLibrary';
-	const q = '__ib__';
-	const m = document;
-	const b = window[c] || (window[c] = {});
-
-	const d = b.maps || (b.maps = {});
-	let h;
-
-	const r = new Set();
-	const e = new URLSearchParams();
-	const u = () => {
-		if (h) {
-			return h;
-		}
-
-		h = new Promise(async (f, n) => {
-			const a = m.createElement('script');
-
-			e.set('libraries', [...r].join(','));
-			for (const [k, v] of Object.entries(g)) {
-				if (Object.prototype.hasOwnProperty.call(g, k)) {
-					e.set(
-						k.replace(/[A-Z]/g, (t) => '_' + t[0].toLowerCase()),
-						v
-					);
-				}
-			}
-			e.set('callback', c + '.maps.' + q);
-			a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
-			d[q] = f;
-			a.onerror = () => h.catch((err) => n(err));
-			a.nonce = m.querySelector('script[nonce]')?.nonce || '';
-
-			m.head.append(a);
-		});
-
-		return h;
+export const loadGoogleMaps = async (options) => {
+	const document = window.document;
+	const config = {
+		apiKey: options.key,
+		libraries: options.libraries || [],
+		version: options.v,
+		language: options.language,
+		region: options.region,
+		retries: 3
 	};
 
-	if (d[l]) {
-		console.warn(`${p} only loads once. Ignoring:`, g);
-	} else {
-		d[l] = (f, ...n) => {
-			if (!r.has(f)) {
-				r.add(f);
-				u().then(() => d[l](f, ...n));
+	const createUrl = () => {
+		let url = 'https://maps.googleapis.com/maps/api/js?';
+		const queryParams = new URLSearchParams();
+
+		queryParams.set('callback', '__googleMapsCallback');
+		queryParams.set('key', config.apiKey);
+		queryParams.set('libraries', config.libraries.join(','));
+		queryParams.set('language', config.language);
+		queryParams.set('region', config.region);
+		if (config.version) queryParams.set('v', config.version);
+
+		url += queryParams.toString();
+		return url;
+	};
+
+	const loadScript = () => {
+		return new Promise((resolve, reject) => {
+			if (window.google && window.google.maps) {
+				console.warn('Google Maps already loaded.');
+				resolve(window.google);
 			}
-		};
-	}
-})({
-	key: import.meta.env.VITE_GOOGLE_MAPS_API_KEY
-});
+
+			const script = document.createElement('script');
+			script.src = createUrl();
+			script.defer = true;
+			script.async = true;
+			script.nonce = document.querySelector('script[nonce]')?.nonce || '';
+
+			script.onerror = (error) => {
+				if (config.retries > 0) {
+					config.retries--;
+					console.warn('Retrying Google Maps script load.');
+					setTimeout(() => {
+						document.head.removeChild(script);
+						loadScript().then(resolve).catch(reject);
+					}, 1000);
+				} else {
+					reject(error);
+				}
+			};
+
+			window.__googleMapsCallback = () => {
+				resolve(window.google);
+			};
+
+			document.head.appendChild(script);
+		});
+	};
+
+	await loadScript();
+};
