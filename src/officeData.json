@@ -1,0 +1,62 @@
+[
+	{
+		"title": "Bridgeport Field Office",
+		"address": "925 Housatonic Avenue",
+		"city": "Bridgeport, CT 06606"
+	},
+	{
+		"title": "Danbury Field Office",
+		"address": "342 Main Street",
+		"city": "Danbury, CT 06810"
+	},
+	{
+		"title": "Greater Hartford Field Office",
+		"address": "20 Meadow Road",
+		"city": "Windsor, CT 06095"
+	},
+	{
+		"title": "Manchester Field Office",
+		"address": "699 East Middle Turnpike",
+		"city": "Manchester, CT 06040"
+	},
+	{
+		"title": "Middletown Field Office",
+		"address": "2081 South Main Street, Suite B",
+		"city": "Middletown, CT 06457"
+	},
+	{
+		"title": "New Britain Field Office",
+		"address": "30 Christian Lane",
+		"city": "New Britain, CT 06051-4152"
+	},
+	{
+		"title": "New Haven Field Office",
+		"address": "50 Humphrey Street",
+		"city": "New Haven, CT 06513"
+	},
+	{
+		"title": "Norwich Field Office",
+		"address": "401 West Thames Street",
+		"city": "Norwich, CT 06360"
+	},
+	{
+		"title": "Torrington Field Office",
+		"address": "62 Commercial Boulevard",
+		"city": "Torrington, CT 06790"
+	},
+	{
+		"title": "Stamford Field Office",
+		"address": "1642 Bedford Street",
+		"city": "Stamford, CT 06905"
+	},
+	{
+		"title": "Waterbury Field Office",
+		"address": "249 Thomaston Avenue",
+		"city": "Waterbury, CT 06702"
+	},
+	{
+		"title": "Willimantic Field Office",
+		"address": "1320 Main Street / Tyler Square",
+		"city": "Willimantic, CT 06226"
+	}
+]
