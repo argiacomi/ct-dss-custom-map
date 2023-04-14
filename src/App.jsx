@@ -3,6 +3,7 @@ import { Paper, Button, Separator } from './components';
 import SearchBox from './SearchBox';
 import OfficeLocationCard from './OfficeLocationCard';
 import Offices from './officeData.json';
+import GoogleMap from './GoogleMaps';
 
 import './App.css';
 
@@ -30,7 +31,13 @@ const App = () => (
 					))}
 				</div>
 			</div>
-			<div className='ml-4 w-[70%] flex-grow rounded-tr-md'>Map Box</div>
+			<div className='ml-4 w-[70%] flex-grow rounded-tr-md'>
+				<GoogleMap
+					className='ml-4 w-[70%] flex-grow rounded-tr-md'
+					center={{ lat: 40.73061, lng: -73.935242 }} // Add your desired map center coordinates
+					zoom={12} // Add your desired zoom level
+				/>
+			</div>
 		</div>
 	</Paper>
 );
