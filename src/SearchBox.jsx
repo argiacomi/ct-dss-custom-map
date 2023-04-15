@@ -3,7 +3,7 @@ import { Button, TextField } from './components';
 import { SlidersHorizontal } from 'lucide-react';
 
 const SearchBox = () => (
-	<div className='rounded-t-md bg-gray-100 p-2 dark:bg-gray-500 md:rounded-tl-md'>
+	<div className='rounded-t-md bg-gray-100 p-2 dark:bg-gray-500 md:rounded-tl-md md:rounded-tr-none'>
 		<div className='mb-1 px-5 pt-3 text-xl'>
 			Find a CT DSS Office or Resource
 		</div>

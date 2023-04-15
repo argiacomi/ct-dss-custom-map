@@ -17,7 +17,7 @@ const App = () => {
 		<React.StrictMode>
 			<Paper
 				variant='elevation-2'
-				className='mx-auto box-border h-fit w-full max-w-[1440px] cursor-default p-2 dark:bg-gray-900 md:h-screen md:p-4'
+				className='mx-auto my-0 box-border h-fit w-full max-w-[1440px] cursor-default p-2 dark:bg-gray-900 md:h-[98vh] md:p-4'
 			>
 				<div className='grid h-full w-full grid-cols-1 md:grid-cols-3 md:overflow-hidden'>
 					<h1 className='col-span-full row-start-1 w-full text-center md:col-span-1'>
@@ -26,7 +26,7 @@ const App = () => {
 					<div className='col-span-full row-start-2 w-full md:col-span-1 md:row-start-2'>
 						<SearchBox />
 					</div>
-					<div className='col-span-full row-start-4 max-h-full w-full rounded-b-md bg-gray-50 dark:bg-gray-800 md:col-span-1 md:row-start-3 md:overflow-y-auto md:rounded-bl-md'>
+					<div className='col-span-full row-start-4 max-h-full w-full rounded-b-md bg-gray-50 dark:bg-gray-800 md:col-span-1 md:row-start-3 md:overflow-y-auto md:rounded-bl-md md:rounded-br-none'>
 						{Offices.map((office, index) => (
 							<OfficeLocationCard
 								key={index}

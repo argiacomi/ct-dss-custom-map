@@ -1,21 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { loadGoogleMaps } from './lib/loadGoogleMaps';
+// GoogleMaps.js
+import React, { useEffect, useRef } from 'react';
+import { useGoogleMapsLoader } from './lib/loadGoogleMaps';
 
 const GoogleMaps = ({ center, zoom }) => {
 	const mapRef = useRef();
-	const [googleMapsLoaded, setGoogleMapsLoaded] = useState(false);
-
-	useEffect(() => {
-		if (window.google && window.google.maps) {
-			setGoogleMapsLoaded(true);
-		} else {
-			loadGoogleMaps({
-				key: import.meta.env.VITE_GOOGLE_MAPS_API_KEY
-				// Add other options as needed, using camel case.
-				// Use the 'v' parameter to indicate the version to load (alpha, beta, weekly, etc.)
-			}).then(() => setGoogleMapsLoaded(true));
-		}
-	}, []);
+	const googleMapsLoaded = useGoogleMapsLoader({
+		key: import.meta.env.VITE_GOOGLE_MAPS_API_KEY
+		// Add other options as needed, using camel case.
+		// Use the 'v' parameter to indicate the version to load (alpha, beta, weekly, etc.)
+	});
 
 	useEffect(() => {
 		if (googleMapsLoaded) {

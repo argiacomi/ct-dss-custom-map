@@ -1,6 +1,15 @@
+// loadGoogleMaps.js
+import { useState, useEffect } from 'react';
+
 const GOOGLE_MAPS_API_BASE_URL = 'https://maps.googleapis.com/maps/api/js?';
 
+let loadingPromise = null;
+
 export const loadGoogleMaps = async (options) => {
+	if (loadingPromise) {
+		return loadingPromise;
+	}
+
 	const document = window.document;
 	const config = {
 		apiKey: options.key,
@@ -59,5 +68,23 @@ export const loadGoogleMaps = async (options) => {
 		});
 	};
 
-	await loadScript();
+	loadingPromise = loadScript();
+	return loadingPromise;
+};
+
+export const useGoogleMapsLoader = (options) => {
+	const [googleMapsLoaded, setGoogleMapsLoaded] = useState(false);
+	const [loadingPromise, setLoadingPromise] = useState(null);
+
+	useEffect(() => {
+		if (!googleMapsLoaded && !loadingPromise) {
+			const promise = loadGoogleMaps(options);
+			setLoadingPromise(promise);
+			promise.then(() => {
+				setGoogleMapsLoaded(true);
+			});
+		}
+	}, [googleMapsLoaded, loadingPromise, options]);
+
+	return googleMapsLoaded;
 };
