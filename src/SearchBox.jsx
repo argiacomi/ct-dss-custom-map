@@ -11,7 +11,7 @@ const SearchBox = () => (
 			<TextField
 				type='text'
 				placeholder='Zip Code, City, or County'
-				className='mr-2 w-full cursor-text bg-white'
+				className='mr-2 w-full cursor-text'
 			/>
 			<Button size='sm' className='h-[36px]'>
 				Find
