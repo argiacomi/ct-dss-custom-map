@@ -10,9 +10,12 @@ const Offices = () => {
   });
   const [locationZoom, setLocationZoom] = useState(9);
 
+  const mapContainerRef = useRef(null);
+
   const handleLocationClick = (location) => {
     setSelectedLocation(location.geometry.location);
     setLocationZoom(13);
+    mapContainerRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -31,7 +34,10 @@ const Offices = () => {
           />
         ))}
       </div>
-      <div className='col-span-full row-start-3 h-full w-full md:col-span-2 md:col-start-2 md:row-start-2 md:row-end-4'>
+      <div
+        ref={mapContainerRef}
+        className='col-span-full row-start-3 h-full w-full md:col-span-2 md:col-start-2 md:row-start-2 md:row-end-4'
+      >
         <GoogleMaps
           center={selectedLocation}
           zoom={locationZoom}
