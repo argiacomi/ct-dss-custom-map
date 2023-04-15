@@ -17,7 +17,7 @@ const App = () => {
 		<React.StrictMode>
 			<Paper
 				variant='elevation-2'
-				className='mx-auto my-4 box-border h-fit w-full max-w-[1440px] cursor-default px-4 pb-4 dark:bg-gray-900 md:h-screen'
+				className='mx-auto box-border h-fit w-full max-w-[1440px] cursor-default p-2 dark:bg-gray-900 md:h-screen md:p-4'
 			>
 				<div className='grid h-full w-full grid-cols-1 md:grid-cols-3 md:overflow-hidden'>
 					<h1 className='col-span-full row-start-1 w-full text-center md:col-span-1'>
