@@ -26,13 +26,7 @@ const GoogleMaps = ({ center, zoom }) => {
 		}
 	}, [googleMapsLoaded, center, zoom]);
 
-	return (
-		<div
-			className='rounded-r-lg'
-			ref={mapRef}
-			style={{ width: '100%', height: '100%' }}
-		/>
-	);
+	return <div ref={mapRef} style={{ width: '100%', height: '100%' }} />;
 };
 
-export default GoogleMaps;
+export default React.memo(GoogleMaps);
