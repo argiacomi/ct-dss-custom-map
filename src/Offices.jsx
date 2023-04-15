@@ -5,8 +5,8 @@ import officeData from './officeData.json';
 
 const Offices = () => {
   const [selectedLocation, setSelectedLocation] = useState({
-    lat: 41.6032207,
-    lng: -73.087749
+    lat: 41.7677753,
+    lng: -72.6877505
   });
   const [locationZoom, setLocationZoom] = useState(9);
 
@@ -25,7 +25,6 @@ const Offices = () => {
             title={location.title}
             address={location.address}
             city={location.city}
-            location={location.geometry.location}
             place={location.place_id}
             isLast={index === officeData.length - 1}
             onClick={() => handleLocationClick(location)}
@@ -37,7 +36,6 @@ const Offices = () => {
           center={selectedLocation}
           zoom={locationZoom}
           locations={officeData}
-          gestureHandling='cooperative'
           apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
         />
       </div>
