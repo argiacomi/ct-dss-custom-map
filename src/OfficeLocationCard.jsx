@@ -4,12 +4,12 @@ import { Separator } from './components';
 const OfficeLocationCard = React.memo(
 	({ label, title, address, city, isLast }) => {
 		return (
-			<div className='w-full cursor-pointer pt-4 transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-900'>
+			<div className='w-full cursor-default pt-4 transition-colors duration-500 hover:bg-gray-100 dark:hover:bg-gray-900'>
 				<div className='mb-4 flex flex-row items-start'>
 					<div className='aspect mx-3 mt-1 flex aspect-square h-6 w-6 items-center justify-center rounded-full bg-red-500 lg:mx-6'>
 						<span className='text-sm font-extrabold text-white'>{label}</span>
 					</div>
-					<div className=''>
+					<div>
 						<a
 							href='/'
 							className='text-decoration-none cursor-pointer no-underline'
