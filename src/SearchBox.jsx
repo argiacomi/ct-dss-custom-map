@@ -17,14 +17,16 @@ const SearchBox = () => (
 				Find
 			</Button>
 		</span>
-		<Button
-			color='primary'
-			variant='text'
-			className='mx-2 box-border flex w-full max-w-[284px] justify-start pl-2 pr-8 text-lg'
-		>
-			<SlidersHorizontal className='ml-2 mr-2 h-4 w-4' />
-			Filter By Service
-		</Button>
+		<div className='box-border flex w-full min-w-0 whitespace-nowrap px-2'>
+			<Button
+				color='primary'
+				variant='text'
+				className='box-border w-full justify-start px-1 py-2 text-lg'
+			>
+				<SlidersHorizontal className='ml-2 mr-2 h-4 w-4' />
+				Filter By Service
+			</Button>
+		</div>
 	</div>
 );
 
