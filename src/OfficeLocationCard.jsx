@@ -8,6 +8,7 @@ const OfficeLocationCard = React.memo(
     address,
     city,
     location: { lat, lng },
+    place,
     isLast,
     onClick
   }) => {
@@ -44,7 +45,7 @@ const OfficeLocationCard = React.memo(
               </a>
               <Separator orientation='vertical' className='h-5' />
               <a
-                href={`https://www.google.com/maps/dir//${lat},${lng}`}
+                href={`https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${place}`}
                 target='_blank'
                 rel='noreferrer'
                 className='text-decoration-none cursor-pointer border-none bg-opacity-0 text-blue-400 no-underline hover:text-blue-600'

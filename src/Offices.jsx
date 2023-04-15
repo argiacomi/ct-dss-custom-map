@@ -26,6 +26,7 @@ const Offices = () => {
             address={location.address}
             city={location.city}
             location={location.geometry.location}
+            place={location.place_id}
             isLast={index === officeData.length - 1}
             onClick={() => handleLocationClick(location)}
           />
