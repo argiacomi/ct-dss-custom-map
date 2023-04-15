@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import OfficeLocationCard from './OfficeLocationCard';
 import GoogleMaps from './GoogleMaps';
 import officeData from './officeData.json';
