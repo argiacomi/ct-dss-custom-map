@@ -1,4 +1,3 @@
-// loadGoogleMaps.js
 import { useState, useEffect } from 'react';
 
 const GOOGLE_MAPS_API_BASE_URL = 'https://maps.googleapis.com/maps/api/js?';

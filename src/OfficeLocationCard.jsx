@@ -2,9 +2,20 @@ import React from 'react';
 import { Separator } from './components';
 
 const OfficeLocationCard = React.memo(
-  ({ label, title, address, city, isLast }) => {
+  ({
+    label,
+    title,
+    address,
+    city,
+    location: { lat, lng },
+    isLast,
+    onClick
+  }) => {
     return (
-      <div className='w-full cursor-default pt-4 transition-colors duration-500 hover:bg-gray-100 dark:hover:bg-gray-900'>
+      <div
+        className='w-full cursor-default pt-4 transition-colors duration-500 hover:bg-gray-100 dark:hover:bg-gray-900'
+        onClick={onClick}
+      >
         <div className='mb-4 flex flex-row items-start'>
           <div className='aspect mx-3 mt-1 flex aspect-square h-6 w-6 items-center justify-center rounded-full bg-red-500 lg:mx-6'>
             <span className='text-sm font-extrabold text-white'>{label}</span>
@@ -33,7 +44,9 @@ const OfficeLocationCard = React.memo(
               </a>
               <Separator orientation='vertical' className='h-5' />
               <a
-                href='/'
+                href={`https://www.google.com/maps/dir//${lat},${lng}`}
+                target='_blank'
+                rel='noreferrer'
                 className='text-decoration-none cursor-pointer border-none bg-opacity-0 text-blue-400 no-underline hover:text-blue-600'
               >
                 Get Directions
