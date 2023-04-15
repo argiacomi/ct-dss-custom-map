@@ -8,46 +8,46 @@ import GoogleMap from './GoogleMap';
 import './App.css';
 
 const App = () => {
-	const initialLocation = {
-		center: { lat: 41.7677753, lng: -72.6877505 },
-		zoom: 18
-	};
+  const initialLocation = {
+    center: { lat: 41.7677753, lng: -72.6877505 },
+    zoom: 18
+  };
 
-	return (
-		<React.StrictMode>
-			<Paper
-				variant='elevation-2'
-				className='mx-auto my-0 box-border h-fit w-full max-w-[1440px] cursor-default p-2 dark:bg-gray-900 md:h-[98vh] md:p-4'
-			>
-				<div className='grid h-full w-full grid-cols-1 md:grid-cols-3 md:overflow-hidden'>
-					<h1 className='col-span-full row-start-1 w-full text-center md:col-span-1'>
-						Office Locator
-					</h1>
-					<div className='col-span-full row-start-2 w-full md:col-span-1 md:row-start-2'>
-						<SearchBox />
-					</div>
-					<div className='col-span-full row-start-4 max-h-full w-full rounded-b-md bg-gray-50 dark:bg-gray-800 md:col-span-1 md:row-start-3 md:overflow-y-auto md:rounded-bl-md md:rounded-br-none'>
-						{Offices.map((office, index) => (
-							<OfficeLocationCard
-								key={index}
-								label={index + 1}
-								title={office.title}
-								address={office.address}
-								city={office.city}
-								isLast={index === Offices.length - 1}
-							/>
-						))}
-					</div>
-					<div className='col-span-full row-start-3 h-full w-full md:col-span-2 md:col-start-2 md:row-start-2 md:row-end-4'>
-						<GoogleMap
-							center={initialLocation.center}
-							zoom={initialLocation.zoom}
-						/>
-					</div>
-				</div>
-			</Paper>
-		</React.StrictMode>
-	);
+  return (
+    <React.StrictMode>
+      <Paper
+        variant='elevation-2'
+        className='mx-auto my-0 box-border h-fit w-full max-w-[1440px] cursor-default p-2 dark:bg-gray-900 md:h-[98vh] md:p-4'
+      >
+        <div className='grid h-full w-full grid-cols-1 md:grid-cols-3 md:overflow-hidden'>
+          <h1 className='col-span-full row-start-1 w-full text-center md:col-span-1'>
+            Office Locator
+          </h1>
+          <div className='col-span-full row-start-2 w-full md:col-span-1 md:row-start-2'>
+            <SearchBox />
+          </div>
+          <div className='col-span-full row-start-4 max-h-full w-full rounded-b-md bg-gray-50 dark:bg-gray-800 md:col-span-1 md:row-start-3 md:overflow-y-auto md:rounded-bl-md md:rounded-br-none'>
+            {Offices.map((office, index) => (
+              <OfficeLocationCard
+                key={index}
+                label={index + 1}
+                title={office.title}
+                address={office.address}
+                city={office.city}
+                isLast={index === Offices.length - 1}
+              />
+            ))}
+          </div>
+          <div className='col-span-full row-start-3 h-full w-full md:col-span-2 md:col-start-2 md:row-start-2 md:row-end-4'>
+            <GoogleMap
+              center={initialLocation.center}
+              zoom={initialLocation.zoom}
+            />
+          </div>
+        </div>
+      </Paper>
+    </React.StrictMode>
+  );
 };
 
 export default App;
