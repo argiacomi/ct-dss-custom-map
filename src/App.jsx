@@ -17,16 +17,16 @@ const App = () => {
 		<React.StrictMode>
 			<Paper
 				variant='elevation-2'
-				className='mx-auto my-4 box-border h-screen w-full max-w-[1200px] cursor-default px-4 pb-4 dark:bg-gray-900'
+				className='mx-auto my-4 box-border h-fit w-full max-w-[1440px] cursor-default px-4 pb-4 dark:bg-gray-900 md:h-screen'
 			>
-				<div className='grid h-full w-full grid-cols-1 overflow-hidden md:grid-cols-3'>
+				<div className='grid h-full w-full grid-cols-1 md:grid-cols-3 md:overflow-hidden'>
 					<h1 className='col-span-full row-start-1 w-full text-center md:col-span-1'>
 						Office Locator
 					</h1>
 					<div className='col-span-full row-start-2 w-full md:col-span-1 md:row-start-2'>
 						<SearchBox />
 					</div>
-					<div className='col-span-full row-start-4 max-h-full w-full overflow-y-auto rounded-b-md bg-gray-50 dark:bg-gray-800 md:col-span-1 md:row-start-3 md:rounded-bl-md'>
+					<div className='col-span-full row-start-4 max-h-full w-full rounded-b-md bg-gray-50 dark:bg-gray-800 md:col-span-1 md:row-start-3 md:overflow-y-auto md:rounded-bl-md'>
 						{Offices.map((office, index) => (
 							<OfficeLocationCard
 								key={index}
@@ -38,7 +38,7 @@ const App = () => {
 							/>
 						))}
 					</div>
-					<div className='col-span-full row-start-3 h-full w-full md:col-span-2 md:col-start-2 md:row-start-2 md:row-end-4 md:rounded-r-md'>
+					<div className='col-span-full row-start-3 h-full w-full md:col-span-2 md:col-start-2 md:row-start-2 md:row-end-4'>
 						<GoogleMap
 							center={initialLocation.center}
 							zoom={initialLocation.zoom}

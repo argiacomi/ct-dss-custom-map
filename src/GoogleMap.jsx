@@ -26,7 +26,12 @@ const GoogleMaps = ({ center, zoom }) => {
 		}
 	}, [googleMapsLoaded, center, zoom]);
 
-	return <div ref={mapRef} style={{ width: '100%', height: '100%' }} />;
+	return (
+		<div
+			className='aspect-video h-full w-full md:aspect-auto md:rounded-r-md'
+			ref={mapRef}
+		/>
+	);
 };
 
 export default React.memo(GoogleMaps);
