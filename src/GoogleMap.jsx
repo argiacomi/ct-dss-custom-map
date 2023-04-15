@@ -21,7 +21,7 @@ const GoogleMaps = ({ center, zoom }) => {
 
 	return (
 		<div
-			className='aspect-video h-full w-full md:aspect-auto md:rounded-r-md'
+			className='aspect-square h-full w-full md:aspect-auto md:rounded-r-md'
 			ref={mapRef}
 		/>
 	);
