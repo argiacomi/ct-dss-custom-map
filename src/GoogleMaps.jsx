@@ -88,7 +88,7 @@ const GoogleMaps = ({
         const marker = new google.maps.Marker({
           position: location.geometry.location,
           map,
-          label: `${index + 1}`
+          label: { text: `${index + 1}`, color: 'white', fontSize: '14px' }
         });
 
         marker.addListener('click', () => {
