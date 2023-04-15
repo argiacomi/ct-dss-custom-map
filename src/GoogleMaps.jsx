@@ -49,7 +49,43 @@ const GoogleMaps = ({ center, zoom, locations, onMarkerClick, apiKey }) => {
     const directions = new URL(
       `https://www.google.com/maps/dir//${location.geometry.location.lat},${location.geometry.location.lng}`
     );
-    infoWindow.current.setContent(/*...*/);
+    infoWindow.current.setContent(`
+      <div class='mb-4 flex flex-row items-start'>
+        <div>
+          <a
+            href='/'
+            class='text-decoration-none cursor-pointer no-underline'
+          >
+            <div class='text-base font-bold text-black hover:text-primary sm:text-lg'>
+              ${location.title}
+            </div>
+          </a>
+          <div class='text-xs text-gray-600 sm:text-sm'>
+            ${location.address}
+          </div>
+          <div class='text-xs text-gray-600 sm:text-sm'>
+            ${location.city}
+          </div>
+          <span class='mt-2 flex space-x-1'>
+            <a
+              href='/'
+              class='text-decoration-none cursor-pointer border-none bg-opacity-0 text-blue-400 no-underline hover:text-blue-600'
+            >
+              View details
+            </a>
+            <div data-orientation="vertical" role="none" class="bg-gray-100 dark:bg-gray-200 w-[1px] h-4"></div>
+            <a
+              href=${directions.href}
+              target='_blank'
+              rel='noreferrer'
+              class='text-decoration-none cursor-pointer border-none bg-opacity-0 text-blue-400 no-underline hover:text-blue-600'
+            >
+              Get Directions
+            </a>
+          </span>
+        </div>
+      </div>
+    `);
     infoWindow.current.open(mapRef.current, marker);
   }, []);
 
