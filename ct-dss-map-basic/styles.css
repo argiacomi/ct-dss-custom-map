@@ -74,26 +74,12 @@ html * {
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
-@media (min-width: 835px) {
-  .root-container {
-    height: 98vh;
-    padding: 1rem;
-  }
-}
-
 .grid-container {
   display: grid;
   height: 100%;
   width: 100%;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   overflow: visible;
-}
-
-@media (min-width: 835px) {
-  .grid-container {
-    grid-template-columns: minmax(0, 442px) 1fr 1fr;
-    overflow: hidden;
-  }
 }
 
 .main-title {
@@ -103,35 +89,16 @@ html * {
   text-align: center;
 }
 
-@media (min-width: 835px) {
-  .main-title {
-    grid-column: span 1 / span 1;
-  }
-}
-
 .search-section {
   grid-column: 1 / -1;
   grid-row-start: 2;
   width: 100%;
 }
 
-@media (min-width: 835px) {
-  .search-section {
-    grid-column: span 1 / span 1;
-    grid-row-start: 2;
-  }
-}
-
 .search-container {
   border-radius: 0.375rem 0.375rem 0 0;
   background-color: var(--search-bg);
   padding: 0.5rem;
-}
-
-@media (min-width: 835px) {
-  .search-container {
-    border-radius: 0.375rem 0 0 0;
-  }
 }
 
 .search-title {
@@ -217,15 +184,6 @@ html * {
   background-color: var(--offices-bg);
 }
 
-@media (min-width: 835px) {
-  .offices-container {
-    grid-column: span 1 / span 1;
-    grid-row-start: 3;
-    overflow-y: auto;
-    border-radius: 0 0 0 0.375rem;
-  }
-}
-
 .office-card-container {
   width: calc(100% - 1.5rem);
   cursor: default;
@@ -235,6 +193,7 @@ html * {
   margin-right: 0.75rem;
   box-sizing: border-box;
 }
+
 .office-card-container:hover {
   background-color: var(--office-card-container-bg);
 }
@@ -258,13 +217,6 @@ html * {
   justify-content: center;
   border-radius: 9999px;
   background-color: #ef4444;
-}
-
-@media (min-width: 835px) {
-  .office-label-container {
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-  }
 }
 
 .office-label {
@@ -291,15 +243,6 @@ html * {
 .office-address {
   font-size: 0.75rem;
   color: var(--office-address);
-}
-
-@media (min-width: 480px) {
-  .office-title {
-    font-size: 1.125rem;
-  }
-  .office-address {
-    font-size: 0.875rem;
-  }
 }
 
 .office-link-container {
@@ -345,26 +288,10 @@ html * {
   width: 100%;
 }
 
-@media (min-width: 835px) {
-  .map-container {
-    grid-column: span 2 / span 2;
-    grid-column-start: 2;
-    grid-row-start: 2;
-    grid-row-end: 4;
-  }
-}
-
 .map {
   aspect-ratio: 1 / 1;
   height: 100%;
   width: 100%;
-}
-
-@media (min-width: 835px) {
-  .map {
-    aspect-ratio: auto;
-    border-radius: 0 0.375rem 0.375rem 0;
-  }
 }
 
 .map-card {
@@ -394,15 +321,6 @@ html * {
   color: #4b5563;
 }
 
-@media (min-width: 480px) {
-  .map-office-title {
-    font-size: 1.125rem;
-  }
-  .map-office-address {
-    font-size: 0.875rem;
-  }
-}
-
 .map-office-link-container {
   margin-top: 0.5rem;
   display: flex;
@@ -428,6 +346,70 @@ html * {
   background-color: #6b7280;
 }
 
---office-title-text: #000000;
---office-address: ;
---separator: #6b7280;
+
+@media (min-width: 835px) {
+  .root-container {
+    height: 98vh;
+    padding: 1rem;
+  }
+
+  .grid-container {
+    grid-template-columns: minmax(0, 442px) 1fr 1fr;
+    overflow: hidden;
+  }
+
+  .main-title {
+    grid-column: 1 / span 1;
+  }
+
+  .search-section {
+    grid-column: span 1 / span 1;
+    grid-row-start: 2;
+  }
+
+  .search-container {
+    border-radius: 0.375rem 0 0 0;
+  }
+
+  .offices-container {
+    grid-column: span 1 / span 1;
+    grid-row-start: 3;
+    overflow-y: auto;
+    border-radius: 0 0 0 0.375rem;
+  }
+
+  .office-label-container {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .map-container {
+    grid-column: span 2 / span 2;
+    grid-column-start: 2;
+    grid-row-start: 2;
+    grid-row-end: 4;
+  }
+
+  .map {
+    aspect-ratio: auto;
+    border-radius: 0 0.375rem 0.375rem 0;
+  }
+}
+
+@media (min-width: 480px) {
+  .office-title {
+    font-size: 1.125rem;
+  }
+
+  .office-address {
+    font-size: 0.875rem;
+  }
+
+  .map-office-title {
+    font-size: 1.125rem;
+  }
+
+  .map-office-address {
+    font-size: 0.875rem;
+  }
+}
